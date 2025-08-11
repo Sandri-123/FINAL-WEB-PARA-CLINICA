@@ -1,0 +1,670 @@
+/* ==============================
+   VARIABLES
+================================ */
+
+
+:root {
+
+  /* PALETA DE COLORES */
+
+  --primary: #fe5f0a;
+  --secondary: #fe5f0a;
+  --light: #fff;
+  --dark: #333;
+  --gray: #f5f5f5;
+  --text: #444;
+  
+  --plomo: #373435;
+  /* TIPOGRAFÍA */
+
+--font-principal: 'Poppins', sans-serif;
+--font-size-sm: 1.3rem;
+
+/* SOMBRAS */
+
+--shadow: rgba(0, 0, 0, 0.05);
+--shadow2:0 4px 10px rgba(0,0,0,0.1);
+
+/* SOMBRAS MENU */
+--shadow3: 0 1px 3px rgba(0, 0, 0, 0.09);
+
+}
+
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: var(--font-principal);
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1em;
+      font-weight: 700;
+      font-size: 1.6em;
+      text-align: center;
+    }
+
+    section {
+      padding: 3em 1.5em;
+      max-width: 1500px;
+      margin: auto;
+    }
+}
+
+span {
+  color: var(--gray);
+}
+
+
+/* HEADER */
+
+header {
+  background-color: var(--gray);
+  box-shadow: 0 2px 6px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+
+    .top-bar {
+        background-color: var(--secondary);
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: var(--dark);
+    
+     }
+
+}
+
+/* ==============================
+   NAVEGACION (dejarlo tal cual por que se mueve todo)
+================================ */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+   padding: 0.3em 1em;
+  background-color: var(--light);
+  min-height: 50px;
+  box-shadow: var(--shadow3);
+}
+
+/* Logo */
+.navbar .logo {
+  height: 180px;
+    margin-right: 1.5em;
+  margin-left: 10.5em;
+  object-fit: contain;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Menú por defecto (horizontal) */
+.menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  list-style: none;
+  gap: 1em;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu li a {
+  display: inline-block;
+  margin-top: 1.5em;
+  background: white;
+  color: black;
+  padding: 0.75em 1.5em;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.menu li a.active {
+  background: var(--primary);
+  color: white;
+}
+
+.menu li a:hover {
+  background: orangered;
+  transform: scale(1.05);
+  color: var(--gray);
+}
+
+
+/* ==============================
+   BANNER PRINCIPAL (CAROUSEL)
+================================ */
+
+.banner {
+  position: relative;
+  overflow: hidden;   
+  margin: 0;
+  padding: 0; 
+  width: 100%;      
+  max-width: none;  
+  
+
+
+      .banner__slider {
+          display: flex;
+          width: 300vw;        /* 3 slides * 100vw */
+          margin: 0;
+          padding: 0;
+          animation: slideAnimation 15s infinite;
+
+
+            .banner__slide {
+                width: 100vw;
+                flex-shrink: 0;
+                position: relative;
+                margin: 0;
+                padding: 0;
+
+
+                    .banner__image {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+              }
+        }
+}
+
+
+
+/* ANIMACION SLIDER */
+
+@keyframes slideAnimation {
+  0%, 25%   { transform: translateX(0); }
+  33%, 58%  { transform: translateX(-100vw); }
+  66%, 91%  { transform: translateX(-200vw); }
+  100%      { transform: translateX(0); }
+}
+
+
+/* ==============================
+   SECCIONES GENERALES
+================================ */
+
+
+
+
+
+
+/* QUIENES SOMOS */
+
+.dos-columnas {
+  display: flex;
+  flex-wrap: wrap; /* Para que sea responsive en móviles */
+  gap: 40px;
+  padding: 40px 20px;
+  align-items: center;
+  max-width: 1200px;
+  scroll-margin-top:23ex ;
+    
+      .columna {
+          flex: 1;
+          min-width: 280px;
+      }
+  
+  .columna.texto h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: left;
+
+      .columna.texto p {
+          font-size: var(--font-size-sm);
+          line-height: 1.6;
+          color: #333;
+          text-align: justify;
+        }
+   
+    }
+
+  .columna.imagen img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow2);
+   }
+
+}
+
+
+
+/* ==============================
+   NUESTROS SERVICIOS (GALERÍA)
+================================ */
+
+
+.servicios{
+  scroll-margin-top:23ex;
+
+  .image-galery {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 2rem;
+          padding: 1rem;
+          flex-wrap: wrap;
+ 
+              .image-card {
+                  text-align: center;
+                  max-width: 400px;
+                  }
+
+      .image-card img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          transition: transform 0.5s ease;
+          }
+
+      .image-card:hover img {
+          transform: scale(1.05);
+          }
+
+      .image-card:hover {
+          transform: translateY(-5px);
+          transition: transform 0.3s ease;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          }
+      }
+}
+
+/* ==============================
+   SEDE O UBICACION MAPA
+================================ */
+
+.sede{
+    scroll-margin-top:23ex ;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 1.05em;
+
+
+    .ubicacion {
+        display: block;
+        margin: 0 auto 15px auto;
+        border-radius: 8px;
+        border: 2px solid var(--primary);
+        width: 800px;
+        height: 450px;
+    }
+
+}
+
+
+/* ==============================
+   TESTIMONIOS
+================================ */
+
+.Portafolio_clinica__testimonios {
+  padding: 2rem;
+  background-color: var(--light);
+  scroll-margin-top:23ex;
+
+    .Portafolio_clinica__testimonios-lista {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+
+
+          .Portafolio_clinica__testimonio {
+              max-width: 300px;
+              background-color: var(--light);
+              padding: 1rem;
+              border-radius: 8px;
+              text-align: center;
+              box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+
+                  .Portafolio_clinica__testimonio-img {
+                      width: 50%;
+                      height: auto;
+                      border-radius: 50%;
+                      object-fit: cover;
+                      margin-bottom: 1rem;
+                  }
+
+                  .Portafolio_clinica__testimonio-titulo {
+                      font-size: 1.25rem;
+                      margin-bottom: 0.5rem;
+ 
+                  }
+
+                  .Portafolio_clinica__testimonio-texto {
+                      font-size: 1rem;
+                      margin-bottom: 0.5rem;
+                      line-height: 1.4;
+                  }
+
+
+                  .Portafolio_clinica__testimonio-nombre {
+                      font-size: 0.9rem;
+                      font-style: italic;
+  
+                  }
+
+          }
+      }
+
+}
+
+
+
+
+/* ==============================
+   CONTACTO (Aqui no ver nada, dejarlo asi la estructura)
+================================ */
+
+.contacto{
+  scroll-margin-top:23ex;
+  
+}
+
+.contacto form {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contacto input,
+.contacto textarea {
+  padding: 0.75em 1em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.contacto input:focus,
+.contacto textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.contacto button {
+  background: var(--primary);
+  color: white;
+  padding: 1em;
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contacto button:hover {
+  background: var(--primary);
+  transform: scale(1.03);
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+  background-color: var(--plomo);
+  color: var(--light);
+  padding: 2em 1em;
+  font-size: 0.95em;
+
+      .footer-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 2em;
+          max-width: 1200px;
+          margin: auto;
+
+              .footer-logo img {
+                  max-height: 80px;
+                  margin-bottom: 0.5em;
+
+                          .slogan {
+                              font-size: 0.85em;
+                              font-style: italic;
+                              color: #ccc;
+                       }
+              }
+
+
+              .footer-info {
+                 flex: 1 1 300px;
+                 text-align: center;
+
+                      .footer-info p {
+                          margin-bottom: 1em;
+                          line-height: 1.5;
+               }
+
+              .footer-info .icon {
+                  font-size: 1.2em;
+                  margin-right: 0.3em;
+          }
+
+            }
+
+
+
+              .footer-social {
+                  flex: 1 1 200px;
+                  display: flex;
+                  justify-content: center;
+                  gap: 1em;
+               }
+
+               .footer-social img {
+                  width: 35px;
+                  height: 35px;
+                  filter: invert(1);
+                  transition: transform 0.3s;
+
+                }
+
+               .footer-social img:hover {
+                  transform: scale(1.1);
+                }    
+  
+      }
+
+
+      .footer-copy {
+          text-align: center;
+          margin-top: 2em;
+          font-size: 0.85em;
+          color: #ccc;
+      }
+
+
+}
+
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+
+
+@media (max-width: 768px) {
+
+
+ /* NAVEGACION */
+ .navbar {
+ 
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+     
+       .menu-toggle {
+          display: block;
+      }
+
+      .menu {
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateX(0);
+      width: 100%;
+      background: var(--light);
+      padding: 1em 0;
+      gap: 0.5em;
+      align-items: center;
+      display: none; /* Oculto por defecto */
+    }
+
+      .menu.active {
+      display: flex; /* Se muestra cuando está activo */
+    }
+
+      .menu li a {
+      margin-top: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+
+}
+
+
+/*SEDE O UBICACION MAPA */
+
+.sede{
+    .ubicacion {
+        width: 100%;
+        height: 300px;
+  } 
+}
+
+  /* TESTIMONIOS */
+
+  .Portafolio_clinica__testimonios-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+
+ 
+@media (max-width: 1366px) {
+
+  /* ==============================
+   Esta parte es para modificar el menu de el logo un bloque hacia abajo al menu NAV
+================================ */
+
+ /* NAVEGACION*/
+ .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: var(--shadow3);
+
+      .logo {
+          margin-left: 0;
+          height: 250px;
+  }
+
+     .menu {
+        box-shadow: var(--shadow3);
+        justify-content: center;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        transform: translateX(0);
+        width: 100%;
+        background: var(--light);
+        padding: 1em 0;
+        gap: 0.5em;
+        align-items: center;
+     
+     }
+
+    .menu.active {
+        display: flex; /* Se muestra cuando está activo */
+     }
+
+    .menu li a {
+        margin-top: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+}  
+
+
+  /* ==============================
+   Esta parte es para modificar el scroll de las secciones para LAPTOPS resolucion
+================================ */
+
+ /* Quienes somos*/
+.dos-columnas {
+  scroll-margin-top:32ex;
+}
+
+ /* SERVICIOS*/
+.servicios{
+
+  scroll-margin-top:32ex;
+  }
+
+ /* TESTIMONIOS*/
+.Portafolio_clinica__testimonios {
+  scroll-margin-top:32ex;
+}
+
+ /* UBICACION*/
+.sede{
+ scroll-margin-top:32ex;
+
+  }
+   
+  /* FORMULARIO O CONTACTO*/
+.contacto{
+  scroll-margin-top: 32ex;
+  
+}
+
+ 
+}
