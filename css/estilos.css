@@ -112,9 +112,9 @@ header {
 
 /* Logo */
 .navbar .logo {
-  height: 180px;
+  height: 150px;
     margin-right: 1.5em;
-  margin-left: 10.5em;
+  /*margin-left: 10.5em;  lo anule para que mi logo se centre mucho mejor en tablet*/ 
   object-fit: contain;
 }
 
@@ -221,10 +221,6 @@ header {
 ================================ */
 
 
-
-
-
-
 /* QUIENES SOMOS */
 
 .dos-columnas {
@@ -235,6 +231,7 @@ header {
   align-items: center;
   max-width: 1200px;
   scroll-margin-top:23ex ;
+  text-align: justify;
     
       .columna {
           flex: 1;
@@ -458,14 +455,14 @@ header {
           margin: auto;
 
               .footer-logo img {
-                  max-height: 80px;
-                  margin-bottom: 0.5em;
+                  margin-left: 17%;
+                  max-height: 120px;                  
+              }
 
-                          .slogan {
-                              font-size: 0.85em;
-                              font-style: italic;
-                              color: #ccc;
-                       }
+               .slogan {
+                      font-size: 0.85em;
+                      color: var(--light);
+                             
               }
 
 
@@ -485,13 +482,13 @@ header {
 
             }
 
-
-
               .footer-social {
-                  flex: 1 1 200px;
+                  margin-top: 0.1em; /* reducido */
+                  margin-bottom: 0.2em; /* reducido */
                   display: flex;
                   justify-content: center;
-                  gap: 1em;
+                   align-items: center; /* centra verticalmente */
+                   gap: 1em;
                }
 
                .footer-social img {
@@ -499,7 +496,7 @@ header {
                   height: 35px;
                   filter: invert(1);
                   transition: transform 0.3s;
-
+                   display: block;
                 }
 
                .footer-social img:hover {
@@ -526,7 +523,6 @@ header {
 ================================ */
 
 
-
 @media (max-width: 768px) {
 
 
@@ -536,6 +532,8 @@ header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    
+ 
      
        .menu-toggle {
           display: block;
@@ -553,16 +551,22 @@ header {
       gap: 0.5em;
       align-items: center;
       display: none; /* Oculto por defecto */
+      
+  
     }
 
       .menu.active {
       display: flex; /* Se muestra cuando está activo */
+      background-color: rgba(255, 255, 255, 0.3); /* Blanco con 30% de opacidad */
+      backdrop-filter: blur(5px); /* Difumina el fondo detrás del menú */
+      -webkit-backdrop-filter: blur(5px); /* Soporte para Safari */
     }
 
       .menu li a {
       margin-top: 0;
       width: 100%;
       text-align: center;
+      
     }
 
 
@@ -585,7 +589,56 @@ header {
     align-items: center;
   }
 
+
+
+
+
+  /* Ajusta el tamaño del logo */
+
+  .footer {
+      
+  
+         .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5em;
+
+ 
+          .footer-logo img {
+            margin: 0 auto;
+            display: block;
+            max-height: 120px;
+  }
+
+  .footer .slogan {
+     margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+  }
+
+
+   .footer-social {
+     margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+
+  }
+
+
+
+ 
 }
+           
+          
+
+}
+
+
 
 
  
@@ -602,8 +655,8 @@ header {
     box-shadow: var(--shadow3);
 
       .logo {
-          margin-left: 0;
-          height: 250px;
+          margin-left: 10px;
+          height: 180px;
   }
 
      .menu {
